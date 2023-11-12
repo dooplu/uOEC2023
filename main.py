@@ -20,4 +20,5 @@ def reports(link="", username=""):
 
 @app.route("/admin")
 def admin():
-    return "<h1> admin </h1>"
+    reports = [{"link":"google.com", "username":"bob","desc":"scary"}]
+    return render_template("admin.html", reports=reports)
