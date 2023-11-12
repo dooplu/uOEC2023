@@ -15,7 +15,8 @@ def reports(link="", username=""):
         formLink = request.form["link"]
         formUsername = request.form["username"]
         formDesc = request.form["desc"]
-        print(formLink, formUsername, formDesc)
+        report = {"link":formLink, "username":formUsername, "desc":formDesc}
+        print(report)
         return render_template("reports.html", link=link, username=username)
 
 @app.route("/admin")
