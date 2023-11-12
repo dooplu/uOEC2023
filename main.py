@@ -1,7 +1,25 @@
-from flask import Flask
+from flask import *
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World ITS IDIR!</p>"
+    return render_template("index.html")
+
+@app.route("/reports", methods=['GET', 'POST'])
+@app.route("/reports/<link>+<username>")
+def reports(link="", username=""):
+    if request.method == 'GET':
+        return render_template("reports.html", link=link, username=username)
+    else: 
+        formLink = request.form["link"]
+        formUsername = request.form["username"]
+        formDesc = request.form["desc"]
+        report = {"link":formLink, "username":formUsername, "desc":formDesc}
+        print(report)
+        return render_template("reports.html", link=link, username=username)
+
+@app.route("/admin")
+def admin():
+    reports = [{"link":"google.com", "username":"bob","desc":"scary"}]
+    return render_template("admin.html", reports=reports)
