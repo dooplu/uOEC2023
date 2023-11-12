@@ -1,4 +1,5 @@
 from flask import *
+import DatabaseManager
 
 app = Flask(__name__)
 
@@ -21,5 +22,5 @@ def reports(link="", username=""):
 
 @app.route("/admin")
 def admin():
-    reports = [{"link":"google.com", "username":"bob","desc":"scary"}]
+    reports = DatabaseManager.getdata()
     return render_template("admin.html", reports=reports)

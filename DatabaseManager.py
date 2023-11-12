@@ -12,29 +12,16 @@ db = firestore.client()
 
 def insertalldata (thisDic):
     
-    doc_ref = db.collection('Link').document()
-    doc_ref.set(thisDic["link"])
-
-    doc_ref = db.collection('Usernames').document()
-    doc_ref.set(thisDic["username"])
-
-
     doc_ref = db.collection('Reports').document()
-    doc_ref.set(thisDic["report"])
+    doc_ref.set(thisDic)
 
 
 def getdata ():
-
-    docs = db.collection('Link').get()
-    for doc in docs:
-        print(doc.to_dict())
-
-    docs = db.collection('Usernames').get()
-    for doc in docs:
-        print(doc.to_dict())
-
     docs = db.collection('Reports').get()
+    reports = []
     for doc in docs:
-        print(doc.to_dict())
+        reports.append(doc)
+
+        return reports
 
 
