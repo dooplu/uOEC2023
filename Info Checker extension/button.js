@@ -23,6 +23,15 @@ function createVerifyButton(){
             verifyButton.addEventListener('click', function(){
                 var currentPageUrl = window.location.href;
                 alert(currentPageUrl);
+                let currentPageUrl = window.location.href; // This is your current page URL
+                let username = "yourUsername"; // Replace this with the actual username
+
+                // Construct the new URL
+                let newUrl = "http://127.0.0.1/reports/" + encodeURIComponent(currentPageUrl) + "+" + encodeURIComponent(username);
+
+                // Redirect to the new URL
+                window.location.href = newUrl;
+                window.open(newUrl, '_blank');
             });
         }
     }
