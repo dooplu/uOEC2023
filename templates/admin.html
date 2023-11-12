@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+    <div>
+        <table border="1">
+            <thead>
+                <th style="padding-right: 100px;">Link</th>
+                <th style="padding-right: 100px;">Username</th>
+                <th style="padding-right: 100px;">Description of issue</th>
+            </thead>
+            <tbody>
+                <!-- CHATGPT, looping over items in list to create table entries-->
+                {% for report in reports %}
+                <tr> 
+                    <td>{{ report.link }}</td>
+                    <td>{{ report.username }}</td>
+                    <td>{{ report.desc }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
