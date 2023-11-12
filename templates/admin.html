@@ -14,10 +14,12 @@
             </thead>
             <tbody>
                 <!-- CHATGPT, looping over items in list to create table entries-->
-                {% for report in reports %} 
+                {% for report in reports %}
+                <tr> 
                     <td>{{ report.link }}</td>
                     <td>{{ report.username }}</td>
                     <td>{{ report.desc }}</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>

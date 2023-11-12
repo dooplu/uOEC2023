@@ -20,8 +20,8 @@ def getdata ():
     docs = db.collection('Reports').get()
     reports = []
     for doc in docs:
-        reports.append(doc)
+        reports.append(doc.to_dict())
 
-        return reports
+    return reports
 
 

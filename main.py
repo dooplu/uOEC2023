@@ -17,10 +17,11 @@ def reports(link="", username=""):
         formUsername = request.form["username"]
         formDesc = request.form["desc"]
         report = {"link":formLink, "username":formUsername, "desc":formDesc}
-        print(report)
+        DatabaseManager.insertalldata(report)
         return render_template("reports.html", link=link, username=username)
 
 @app.route("/admin")
 def admin():
     reports = DatabaseManager.getdata()
+    print(reports)
     return render_template("admin.html", reports=reports)
